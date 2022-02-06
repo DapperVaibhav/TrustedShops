@@ -5,6 +5,7 @@
     <classes>
       <class name="TrustedShopsPackage.ReviewPage">
         <methods>
+          <include name="OneStarFilter"/>
           <include name="afterTest"/>
           <include name="beforeTest"/>
           <include name="Sum"/>
