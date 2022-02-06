@@ -46,6 +46,12 @@ public class ReviewPage {
 	     {
 	    	 String overallrating= element1.getText();
 	    	 System.out.println(overallrating);
+	            if (overallrating == null) {
+	            	System.out.println("Rating is zero please check");
+	            }
+	            else {
+	            	System.out.println("Rating is proper");
+	            }
 	     }
   }
   
@@ -82,14 +88,18 @@ WebDriverWait wait1 = new WebDriverWait (driver, 20);
 wait1.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//label[@class='ng-tns-c53-6']"))).get(4).click();
 
 Thread.sleep(2500);
+int starExpected= 1;
+List<WebElement> onestar = driver.findElements(By.xpath("//span[@class='star tsproi tsproi-star-filled active ng-star-inserted']"));
+for(WebElement element3:onestar) {
+	String star= element3.getText();
+	if(Integer.parseInt(star)>starExpected) {
+		System.out.println("Filter is not proper");
+	}
+	else {
+		System.out.println("Filter is working fine");
+	}
+}
 
-JavascriptExecutor js2 = (JavascriptExecutor) driver;
-js2.executeScript("window.scrollBy(0,250)");
-
-JavascriptExecutor js3 = (JavascriptExecutor) driver;
-js3.executeScript("window.scrollBy(0,250)");
-
-Thread.sleep(2500);
   }
 
  
